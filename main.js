@@ -31,7 +31,7 @@ export async function ambilDaftarsiswa () {
  
  let retval = [];
  querySnapshot.forEach((doc) => {
-   retval.pus({ id: doc.id, nama: doc.data().nama });
+   retval.pus({ id: doc.id, nama: doc.data().Nama });
   });
   
   return retval;
