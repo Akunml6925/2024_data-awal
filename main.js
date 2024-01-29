@@ -25,8 +25,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambilDaftarsiswa () {
- const siswaRef = collection(db, "siswa");
- const q = query(siswaRef, orderBy("nama"));
+ const siswaRef = collection(db, "Siswa");
+ const q = query(siswaRef, orderBy("Nama"));
  const querySnapshot = await getDocs(q);
  
  let retval = [];
