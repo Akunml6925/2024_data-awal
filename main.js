@@ -35,4 +35,14 @@ export async function ambilDaftarsiswa () {
   });
   
   return retval;
-}
+  
+  export async function tamabahSiswa(nama) {
+    try {
+     const docRef = await addDoc(collection(db, "siswa"),  {
+       nama: nama
+     });
+     console.log('Berhasil menyimpan dokumen dengan ID: '+ docRef.id');
+    } catch (e) {
+      console.log('Error menambah dokumen: ' + e);
+    }
+  }
