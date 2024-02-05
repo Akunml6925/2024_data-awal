@@ -44,6 +44,6 @@ export async function tambahSiswa(nama) {
     });
     console.log('Berhasil menyimpan dokumen dengan ID: ' + docRef.id);
   } catch (e) {
-    console.log('Error menambah dokumen ' + e);
+    console.log('Error menambah dokumen' + e);
   }
 }
