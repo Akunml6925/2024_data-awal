@@ -1,5 +1,5 @@
-import { initializeApp } from  "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
-import { 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import {
   getFirestore,
   collection,
   addDoc,
@@ -8,7 +8,7 @@ import {
   doc,
   query,
   orderBy
-} from  "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.7.2/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -24,26 +24,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function ambilDaftarsiswa () {
- const siswaRef = collection(db, "Siswa");
- const q = query(siswaRef, orderBy("Nama"));
- const querySnapshot = await getDocs(q);
- 
- let retval = [];
- querySnapshot.forEach((doc) => {
-   retval.push({ id: doc.id, nama: doc.data().Nama });
+export async function ambilDaftarsiswa() {
+  const siswaRef = collection(db, "Siswa");
+  const q = query(siswaRef, orderBy("Nama"));
+  const querySnapshot = await getDocs(q);
+
+  let retval = [];
+  querySnapshot.forEach((doc) => {
+    retval.push({ id: doc.id, nama: doc.data().Nama });
   });
-  
+
   return retval;
+}
+
+export async function tamabahSiswa(nama) {
+  try {
+    const docRef = await addDoc(collection(db, "siswa"), {
+      nama: nama
+    });
+    console.log('Berhasil menyimpan dokumen dengan ID: ' + docRef.id);
+  } catch (e) {
+    console.log('Error menambah dokumen: ' + e);
   }
-  
-  export async function tamabahSiswa(nama) {
-    try {
-     const docRef = await addDoc(collection(db, "siswa"),  {
-       nama: nama
-     });
-     console.log('Berhasil menyimpan dokumen dengan ID: '+ docRef.id);
-    } catch (e) {
-      console.log('Error menambah dokumen: ' + e);
-     }
-  }
+}
