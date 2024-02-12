@@ -27,7 +27,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambilDaftarSiswa() {
-  const siswaRef = collection(db, "Siswa");
+  const siswaRef = collection(db, "siswa");
   const q = query(siswaRef, orderBy("nama"));
   const querySnapshot = await getDocs(q);
 
@@ -41,7 +41,7 @@ export async function ambilDaftarSiswa() {
 
 export async function tambahSiswa(val) {
   try {
-    const docRef = await addDoc(collection(db, "Siswa"), {
+    const docRef = await addDoc(collection(db, "siswa"), {
       nama: val
     });
     console.log('Berhasil menyimpan dokumen dengan ID: ' + docRef.id);
@@ -50,15 +50,15 @@ export async function tambahSiswa(val) {
   }
 }
 export async function hapusSiswa(docId){
-  await deleteDoc(doc(db, "Siswa", docId));
+  await deleteDoc(doc(db, "siswa", docId));
 }
 
 export async function ubahSiswa(docId, val) {
- await updateDoc(doc(db,"Siswa",docId), {nama: val }); 
+ await updateDoc(doc(db,"siswa",docId), {nama: val }); 
 }
 
 export async function ambilSiswa(docId) {
-  const docRef = await doc(db, "Siswa", docId);
+  const docRef = await doc(db, "siswa", docId);
   const docsnap = await getDoc(docRef);
   
   return await docsnap.data();

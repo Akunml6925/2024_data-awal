@@ -23,7 +23,7 @@
   <button type="submit" class="btn btn-primary" id="tombol-ubah">ubah</button>
   </form>
   
- <a href="Siswa.html" class="mt-1">lihat Daftar Siswa</a>
+ <a href="siswa.html" class="mt-1">lihat Daftar Siswa</a>
  
  <script type="module">
   import  { ambilSiswa, ubahSiswa } from './main.js';
@@ -40,7 +40,7 @@
   tombolubah.addEventListener('click',async function (el){
     el.preventDefault();
     await ubahSiswa(docId, elemenNamaSiswa.value);
-    window.location.href = 'Siswa.html';
+    window.location.href = 'siswa.html';
   });
  </script>
  </body>
