@@ -16,12 +16,12 @@
 <body class="m-4">
   <h1>daftar siswa<h1>
     
-  <ul id="daftar-siswa"></ul>
+  <ul id="daftar-siswa" class="list-group"></ul>
     
   <a href="index.html">form Tambah Siswa </a>
   
   <script type="module">
-    import { ambilDaftarsiswa } from "./main.js";
+    import { ambilDaftarsiswa, hapusSiswa } from "./main.js";
     
     $(document).ready(async function() {
       let elemenNamaSiswa = $('#daftar-siswa');
@@ -29,12 +29,24 @@
       
       daftarSiswa.forEach((data) => {
         elemenNamaSiswa.append(
-          '<li>' +
+          '<li class="list-group-item d-flex justify-content-between">' +
+          '<label>'+
           data.nama+
+          '</label>'+
+          '<div>'+
+          ' <button class="btn btn-denger tombol-hapus" data="'+
+          data.id +
+          '">Hapus</button>' +
+          '</div>'+
           '</li>'
           
           ); 
       });
+      
+      $('.tombol-hapus').click(async function() {
+        await haapusSiswa($(this).attr('data'));
+        location.reload();
+      })
     });
   </script>
 </body>
