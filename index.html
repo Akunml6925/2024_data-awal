@@ -23,7 +23,7 @@
   <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
   </form>
   
- <a href="siswa.html" class="mt-1">lihat Daftar Siswa</a>
+ <a href="Siswa.html" class="mt-1">lihat Daftar Siswa</a>
  
  <script type="module">
   import  { tambahSiswa } from './main.js';
@@ -34,7 +34,7 @@
   tombolTambah.addEventListener('click',async function (el){
     el.preventDefault();
     await tambahSiswa(elemenNamaSiswa.value);
-    window.location.href = 'siswa.html';
+    window.location.href = 'Siswa.html';
   });
  </script>
  </body>

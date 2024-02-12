@@ -26,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function ambilDaftarsiswa() {
+export async function ambilDaftarSiswa() {
   const siswaRef = collection(db, "Siswa");
   const q = query(siswaRef, orderBy("nama"));
   const querySnapshot = await getDocs(q);
@@ -54,11 +54,11 @@ export async function hapusSiswa(docId){
 }
 
 export async function ubahSiswa(docId, val) {
- await updateDoc(doc(db,"siswa",docId), {nama: val }); 
+ await updateDoc(doc(db,"Siswa",docId), {nama: val }); 
 }
 
 export async function ambilSiswa(docId) {
-  const docRef = await doc(db, "siswa", docId);
+  const docRef = await doc(db, "Siswa", docId);
   const docsnap = await getDoc(docRef);
   
   return await docsnap.data();
