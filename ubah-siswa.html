@@ -26,14 +26,14 @@
  <a href="siswa.html" class="mt-1">lihat Daftar Siswa</a>
  
  <script type="module">
-  import  { ambilsiswa, ubahSiswa } from './main.js';
+  import  { ambilSiswa, ubahSiswa } from './main.js';
   
   let tombolUbah = document.getElementById('tombol-ubah');
   let elemenNamaSiswa = document.getElementById('imput-nama');
   const queryString = window.location.search;
   const parameterURL = new URLSearchParams(queryString);
   const docId = parameterURL.get('docId');
-  const siswa = await ambilsiswa(docId);
+  const siswa = await ambilSiswa(docId);
   
   elemenNamaSiswa.value = siswa.nama;
   
