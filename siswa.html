@@ -25,7 +25,7 @@
 
       $(document).ready(async function() {
         let elemenNamaSiswa = $('#daftar-siswa');
-        let daftarSiswa = await ambilDaftarSiswa();
+        let daftarSiswa = await ambilDaftarsiswa();
 
         daftarSiswa.forEach((data) => {
           elemenNamaSiswa.append(
@@ -47,7 +47,7 @@
         });
 
         $('.tombol-hapus').click(async function() {
-          await hapusSiswa($(this).attr('data'));
+          await hapussiswa($(this).attr('data'));
           location.reload();
         })
 

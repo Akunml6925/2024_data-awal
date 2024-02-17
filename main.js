@@ -26,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function ambilDaftarSiswa() {
+export async function ambilDaftarsiswa() {
   const siswaRef = collection(db, "siswa");
   const q = query(siswaRef, orderBy("nama"));
   const querySnapshot = await getDocs(q);
@@ -39,7 +39,7 @@ export async function ambilDaftarSiswa() {
   return retval;
 }
 
-export async function tambahSiswa(val) {
+export async function tambahsiswa(val) {
   try {
     const docRef = await addDoc(collection(db, "siswa"), {
       nama: val
@@ -49,15 +49,15 @@ export async function tambahSiswa(val) {
     console.log('Error menambah dokumen' + e);
   }
 }
-export async function hapusSiswa(docId){
+export async function hapussiswa(docId){
   await deleteDoc(doc(db, "siswa", docId));
 }
 
-export async function ubahSiswa(docId, val) {
+export async function ubahsiswa(docId, val) {
  await updateDoc(doc(db,"siswa",docId), {nama: val }); 
 }
 
-export async function ambilSiswa(docId) {
+export async function ambilsiswa(docId) {
   const docRef = await doc(db, "siswa", docId);
   const docsnap = await getDoc(docRef);
   

@@ -33,13 +33,13 @@
   const queryString = window.location.search;
   const parameterURL = new URLSearchParams(queryString);
   const docId = parameterURL.get('docId');
-  const siswa = await ambilSiswa(docId);
+  const siswa = await ambilsiswa(docId);
   
   elemenNamaSiswa.value = siswa.nama;
   
   tombolubah.addEventListener('click',async function (el){
     el.preventDefault();
-    await ubahSiswa(docId, elemenNamaSiswa.value);
+    await ubahsiswa(docId, elemenNamaSiswa.value);
     window.location.href = 'siswa.html';
   });
  </script>
